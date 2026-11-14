@@ -12,7 +12,10 @@
   <meta property="og:image" content="https://projetos.surrealgroup.com.br/CommercialGroupCRM/favicon.svg">
   <style>
     html,body{margin:0;height:100%;background:#0A1017;overflow:hidden;}
-    #sg-frame{border:0;width:100%;height:100%;display:block;background:#0A1017;}
+    /* centraliza o widget num card contido (igual ao link direto do GHL), em vez de esticar de ponta a ponta */
+    body{display:flex;justify-content:center;align-items:stretch;}
+    #sg-frame{border:0;width:100%;max-width:1120px;height:100%;display:block;background:#0A1017;}
+    @media (max-width:1180px){ #sg-frame{max-width:100%;} }
   </style>
 </head>
 <body>
