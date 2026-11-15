@@ -14,6 +14,16 @@
     /* iframe full-width: o próprio widget traz o fundo navy-glass e o card (idêntico ao link direto) */
     html,body{margin:0;height:100%;background:#0A1017;overflow:hidden;}
     #sg-frame{border:0;width:100%;height:100%;display:block;background:#0A1017;}
+    /* dica "role para ver mais" no celular: degradê sutil no rodapé (sinaliza que há mais conteúdo) */
+    @media (max-width:768px){
+      #sg-scrollhint{position:fixed;left:0;right:0;bottom:0;height:72px;pointer-events:none;z-index:9;
+        background:linear-gradient(to top,#0A1017 8%,rgba(10,16,23,0) 100%);}
+      #sg-scrollhint::after{content:"";position:absolute;left:50%;bottom:16px;width:12px;height:12px;margin-left:-6px;
+        border-right:2px solid rgba(138,199,255,.85);border-bottom:2px solid rgba(138,199,255,.85);
+        transform:rotate(45deg);animation:sgBob 1.5s ease-in-out infinite;}
+    }
+    @keyframes sgBob{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.55}50%{transform:rotate(45deg) translate(3px,3px);opacity:1}}
+    @media (prefers-reduced-motion:reduce){#sg-scrollhint::after{animation:none}}
   </style>
 </head>
 <body>
@@ -22,5 +32,6 @@
     title="Reunião Estratégica · Surreal Group"
     allow="clipboard-write; fullscreen"
     referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div id="sg-scrollhint" aria-hidden="true"></div>
 </body>
 </html>
